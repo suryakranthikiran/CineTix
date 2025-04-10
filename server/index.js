@@ -9,6 +9,12 @@ const bookingRoute = require('./routes/bookingRoute')
 const cors = require('cors')
 app.use(cors({ origin: '*' })); // Allow all origins (for development)
 
+const clientBuildPath = path.join(__dirname, "../client/dist")
+app.use(express.static(clientBuildPath))
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(clientBuildPath, "index.html"));
+});
 
 
 app.use(express.json())
