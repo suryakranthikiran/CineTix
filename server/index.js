@@ -8,6 +8,8 @@ const showRoute = require('./routes/showRoutes')
 const bookingRoute = require('./routes/bookingRoute')
 const cors = require('cors')
 app.use(cors({ origin: '*' })); // Allow all origins (for development)
+const path = require('path');
+
 
 const clientBuildPath = path.join(__dirname, "../client/dist")
 app.use(express.static(clientBuildPath))
